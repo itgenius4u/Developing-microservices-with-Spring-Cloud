@@ -21,7 +21,6 @@ Install Visual Studio Code(https://code.visualstudio.com/download)
     # Create Ubunt-22.04
     # After jdk 17
     Extension Pack for Java - Extension
-    Gradle for Java - Extension
     Spring Boot Extension Pack - Extension
 
 ### Init & Java
@@ -36,6 +35,7 @@ Install Visual Studio Code(https://code.visualstudio.com/download)
     $ sdk current java
     $ nano ~/.bashrc
     export JAVA_HOME=/home/user1/.sdkman/candidates/java/current
+    $ sudo apt-get install maven
 
 ### Docker
 
