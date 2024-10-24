@@ -20,6 +20,7 @@ import co.kr.ideacube.employeeservice.repository.EmployeeRepository;
 // import co.kr.ideacube.employeeservice.service.APIClient2;
 import co.kr.ideacube.employeeservice.service.EmployeeService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 
 @Service
 @AllArgsConstructor
@@ -42,7 +43,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         return savedEmployeeDto;
     }
 
-    @CircuitBreaker(name="${spring.application.name}", fallbackMethod = "getDefaultDepartment")
+    // @CircuitBreaker(name="${spring.application.name}", fallbackMethod = "getDefaultDepartment")
+    @Retry(name="${spring.application.name}", fallbackMethod = "getDefaultDepartment")
     @Override
     public APIResponseDto getEmployeeById(Long employeeId) {
 
