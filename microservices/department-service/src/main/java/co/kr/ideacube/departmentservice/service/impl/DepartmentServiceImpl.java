@@ -3,6 +3,7 @@ package co.kr.ideacube.departmentservice.service.impl;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.kr.ideacube.departmentservice.dto.DepartmentDto;
@@ -13,7 +14,6 @@ import co.kr.ideacube.departmentservice.service.DepartmentService;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService {
 
     private DepartmentRepository departmentRepository;

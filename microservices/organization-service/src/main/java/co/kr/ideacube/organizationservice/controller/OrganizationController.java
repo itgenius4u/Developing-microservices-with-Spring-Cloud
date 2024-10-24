@@ -13,7 +13,6 @@ import co.kr.ideacube.organizationservice.service.OrganizationService;
 @RestController
 @RequestMapping("api/organizations")
 @AllArgsConstructor
-@NoArgsConstructor
 public class OrganizationController {
 
     private OrganizationService organizationService;

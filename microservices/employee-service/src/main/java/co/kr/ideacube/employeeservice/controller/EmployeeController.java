@@ -14,7 +14,6 @@ import co.kr.ideacube.employeeservice.service.EmployeeService;
 @RestController
 @RequestMapping("api/employees")
 @AllArgsConstructor
-@NoArgsConstructor
 public class EmployeeController {
 
     private EmployeeService employeeService;

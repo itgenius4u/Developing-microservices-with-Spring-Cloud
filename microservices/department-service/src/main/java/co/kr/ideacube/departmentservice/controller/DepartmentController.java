@@ -14,7 +14,6 @@ import co.kr.ideacube.departmentservice.service.DepartmentService;
 @RestController
 @RequestMapping("api/departments")
 @AllArgsConstructor
-@NoArgsConstructor
 public class DepartmentController {
    
     private DepartmentService departmentService;

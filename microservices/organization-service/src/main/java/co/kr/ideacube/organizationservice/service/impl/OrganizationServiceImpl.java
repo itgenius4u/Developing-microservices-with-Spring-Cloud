@@ -13,7 +13,6 @@ import co.kr.ideacube.organizationservice.service.OrganizationService;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class OrganizationServiceImpl implements OrganizationService {
 
     private OrganizationRepository organizationRepository;

@@ -22,7 +22,6 @@ import co.kr.ideacube.employeeservice.service.EmployeeService;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeServiceImpl.class);
@@ -50,6 +49,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
        ResponseEntity<DepartmentDto> responseEntity = restTemplate.getForEntity("http://localhost:8080/api/departments/" + employee.getDepartmentCode(), DepartmentDto.class);
        ResponseEntity<OrganizationDto> responseEntity2 = restTemplate.getForEntity("http://localhost:8083/api/organizations/" + employee.getOrganizationCode(), OrganizationDto.class);
+
+    //    ResponseEntity<DepartmentDto> responseEntity = restTemplate.getForEntity("http://DEPARTMENT-SERVICE/api/departments/" + employee.getDepartmentCode(), DepartmentDto.class);
+    //    ResponseEntity<OrganizationDto> responseEntity2 = restTemplate.getForEntity("http://ORGANIZATION-SERVICE/api/organizations/" + employee.getOrganizationCode(), OrganizationDto.class);
+
 
        DepartmentDto departmentDto = responseEntity.getBody();
        OrganizationDto organizationDto = responseEntity2.getBody();
