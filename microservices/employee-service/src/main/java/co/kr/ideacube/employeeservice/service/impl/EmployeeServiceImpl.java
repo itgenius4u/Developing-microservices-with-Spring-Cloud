@@ -47,11 +47,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         LOGGER.info("inside getEmployeeById() method");
         Employee employee = employeeRepository.findById(employeeId).get();
 
-       ResponseEntity<DepartmentDto> responseEntity = restTemplate.getForEntity("http://localhost:8080/api/departments/" + employee.getDepartmentCode(), DepartmentDto.class);
-       ResponseEntity<OrganizationDto> responseEntity2 = restTemplate.getForEntity("http://localhost:8083/api/organizations/" + employee.getOrganizationCode(), OrganizationDto.class);
+    //    ResponseEntity<DepartmentDto> responseEntity = restTemplate.getForEntity("http://localhost:8080/api/departments/" + employee.getDepartmentCode(), DepartmentDto.class);
+    //    ResponseEntity<OrganizationDto> responseEntity2 = restTemplate.getForEntity("http://localhost:8083/api/organizations/" + employee.getOrganizationCode(), OrganizationDto.class);
 
-    //    ResponseEntity<DepartmentDto> responseEntity = restTemplate.getForEntity("http://DEPARTMENT-SERVICE/api/departments/" + employee.getDepartmentCode(), DepartmentDto.class);
-    //    ResponseEntity<OrganizationDto> responseEntity2 = restTemplate.getForEntity("http://ORGANIZATION-SERVICE/api/organizations/" + employee.getOrganizationCode(), OrganizationDto.class);
+       ResponseEntity<DepartmentDto> responseEntity = restTemplate.getForEntity("http://DEPARTMENT-SERVICE/api/departments/" + employee.getDepartmentCode(), DepartmentDto.class);
+       ResponseEntity<OrganizationDto> responseEntity2 = restTemplate.getForEntity("http://ORGANIZATION-SERVICE/api/organizations/" + employee.getOrganizationCode(), OrganizationDto.class);
 
 
        DepartmentDto departmentDto = responseEntity.getBody();
