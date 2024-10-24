@@ -19,6 +19,7 @@ import co.kr.ideacube.employeeservice.repository.EmployeeRepository;
 // import co.kr.ideacube.employeeservice.service.APIClient;
 // import co.kr.ideacube.employeeservice.service.APIClient2;
 import co.kr.ideacube.employeeservice.service.EmployeeService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 @Service
 @AllArgsConstructor
@@ -41,6 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return savedEmployeeDto;
     }
 
+    @CircuitBreaker(name="${spring.application.name}", fallbackMethod = "getDefaultDepartment")
     @Override
     public APIResponseDto getEmployeeById(Long employeeId) {
 
@@ -87,10 +89,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee employee = employeeRepository.findById(employeeId).get();
         DepartmentDto departmentDto = new DepartmentDto();
-        departmentDto.setDepartmentName("R&D Department");
-        departmentDto.setDepartmentCode("RD001");
-        departmentDto.setDepartmentDescription("Research and Development Department");
-        EmployeeDto employeeDto = EmployeeMapper.mapToEmployeeDto(employee);        
+        departmentDto.setDepartmentName("Department Error");
+        departmentDto.setDepartmentCode("99");
+        departmentDto.setDepartmentDescription("Department Error");
+        EmployeeDto employeeDto = EmployeeMapper.mapToEmployeeDto(employee);   
+        
+        
 
         APIResponseDto apiResponseDto = new APIResponseDto();
         apiResponseDto.setEmployee(employeeDto);
